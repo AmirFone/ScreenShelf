@@ -80,6 +80,7 @@ struct ContentView: View {
                                     screenshot: screenshot,
                                     isSelected: screenshot.id.map { store.selectedIDs.contains($0) } ?? false,
                                     isCursor: index == store.cursorIndex,
+                                    showPath: store.copyMode == .path,
                                     onSelect: { handleClick(screenshot) }
                                 )
                                 .id(screenshot.id)

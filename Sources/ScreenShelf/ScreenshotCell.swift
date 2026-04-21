@@ -4,6 +4,7 @@ struct ScreenshotCell: View {
     let screenshot: Screenshot
     let isSelected: Bool
     let isCursor: Bool
+    let showPath: Bool
     let onSelect: () -> Void
 
     var body: some View {
@@ -20,6 +21,14 @@ struct ScreenshotCell: View {
                     Text("\(screenshot.width)\u{00D7}\(screenshot.height) \u{00B7} \(Self.sizeFormatter.string(fromByteCount: screenshot.fileSize))")
                         .font(.system(size: 10))
                         .foregroundStyle(.secondary)
+
+                    if showPath {
+                        Text(screenshot.filePath)
+                            .font(.system(size: 9, design: .monospaced))
+                            .foregroundStyle(.tertiary)
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+                    }
                 }
 
                 Spacer(minLength: 0)
