@@ -9,10 +9,6 @@
   Like <a href="https://maccy.app">Maccy</a>, but for screenshots.
 </p>
 
-<p align="center">
-  <img src="assets/screenshot.png" width="400" alt="ScreenShelf screenshot">
-</p>
-
 ## What it does
 
 ScreenShelf watches your screenshot directory and keeps a searchable history with thumbnails. Open it with a keyboard shortcut, select one or more screenshots, and copy them to your clipboard instantly.
