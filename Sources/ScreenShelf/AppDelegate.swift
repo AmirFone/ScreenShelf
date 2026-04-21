@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 import KeyboardShortcuts
+import ServiceManagement
 
 extension KeyboardShortcuts.Name {
     static let togglePanel = Self("togglePanel", default: .init(.x, modifiers: [.command, .shift]))
@@ -27,12 +28,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         setupStatusItem()
         setupKeyboardShortcut()
+        enableLaunchAtLogin()
 
         Task { @MainActor in
             await store.indexExisting()
             await store.loadInitialPage()
             store.startWatching()
         }
+    }
+
+    private func enableLaunchAtLogin() {
+        try? SMAppService.mainApp.register()
     }
 
     private func setupStatusItem() {
